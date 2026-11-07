@@ -1,5 +1,5 @@
 const json=(body,status=200)=>new Response(JSON.stringify(body),{status,headers:{"content-type":"application/json; charset=utf-8","cache-control":"no-store"}});
-export async function onRequestGet({env}){return json({ready:Boolean(env.RESEND_API_KEY&&env.TURNSTILE_SECRET_KEY&&env.CONTACT_FROM_EMAIL&&env.CONTACT_TURNSTILE_SITE_KEY),siteKey:env.CONTACT_TURNSTILE_SITE_KEY||null});}
+export async function onRequestGet({env}){const checks={resend:Boolean(env.RESEND_API_KEY),turnstileSecret:Boolean(env.TURNSTILE_SECRET_KEY),senderEmail:Boolean(env.CONTACT_FROM_EMAIL),turnstileSite:Boolean(env.CONTACT_TURNSTILE_SITE_KEY)};return json({ready:Object.values(checks).every(Boolean),checks,siteKey:env.CONTACT_TURNSTILE_SITE_KEY||null});}
 export async function onRequestPost({request,env}){
 if(!env.RESEND_API_KEY||!env.TURNSTILE_SECRET_KEY||!env.CONTACT_FROM_EMAIL||!env.CONTACT_TURNSTILE_SITE_KEY)return json({error:"not_configured"},503);
 const origin=request.headers.get("origin");if(origin&&new URL(origin).hostname!=="mizaniplus.de"&&new URL(origin).hostname!=="www.mizaniplus.de")return json({error:"forbidden"},403);
