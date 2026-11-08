@@ -1,6 +1,25 @@
 <!doctype html>
 <html lang="de"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="Kontakt und Support für Mizani Plus. Fragen, Feedback und Fehler melden."><title>Kontakt & Support – Mizani Plus</title><link rel="stylesheet" href="styles.css">
-<style>.support-wrap{max-width:800px}.support-lead{color:var(--muted);line-height:1.7}.support-panel{border:1px solid var(--line);border-radius:20px;padding:clamp(20px,4vw,36px);box-shadow:0 8px 30px #193b310a;margin:26px 0}.support-panel h2{margin-top:0}.support-field{display:flex;flex-direction:column;gap:8px;margin:18px 0}.support-field label{font-weight:700}.support-field input,.support-field select,.support-field textarea{width:100%;border:1px solid #bdcec9;border-radius:10px;padding:13px 14px;font:inherit;background:#fff;color:var(--ink)}.support-field textarea{min-height:145px;resize:vertical}.support-field :focus{outline:2px solid var(--teal);outline-offset:2px}.support-note{font-size:14px;color:var(--muted);line-height:1.7}.support-button{border:0;cursor:pointer;font:inherit}.support-address{color:var(--teal);font-weight:750;overflow-wrap:anywhere}.support-legal{display:flex;gap:20px;flex-wrap:wrap;margin-top:35px;color:var(--muted);font-size:14px}.support-lang{border:1px solid #bdcec9;border-radius:10px;padding:9px;background:white;color:var(--ink);font:inherit}html[dir="rtl"] .support-wrap{text-align:right}html[dir="rtl"] .support-field{text-align:right}html[dir="rtl"] .support-legal{direction:rtl}html[dir="rtl"] .support-field input,html[dir="rtl"] .support-field textarea{direction:rtl;text-align:right}html[dir="rtl"] .support-field input[type=email]{direction:ltr;text-align:left}html[dir="rtl"] .support-panel{direction:rtl}</style></head>
+<style>.support-wrap{max-width:800px}.support-lead{color:var(--muted);line-height:1.7}.support-panel{border:1px solid var(--line);border-radius:20px;padding:clamp(20px,4vw,36px);box-shadow:0 8px 30px #193b310a;margin:26px 0}.support-panel h2{margin-top:0}.support-field{display:flex;flex-direction:column;gap:8px;margin:18px 0}.support-field label{font-weight:700}.support-field input,.support-field select,.support-field textarea{width:100%;border:1px solid #bdcec9;border-radius:10px;padding:13px 14px;font:inherit;background:#fff;color:var(--ink)}.support-field textarea{min-height:145px;resize:vertical}.support-field :focus{outline:2px solid var(--teal);outline-offset:2px}.support-note{font-size:14px;color:var(--muted);line-height:1.7}.support-button{border:0;cursor:pointer;font:inherit}.support-address{color:var(--teal);font-weight:750;overflow-wrap:anywhere}.support-legal{display:flex;gap:20px;flex-wrap:wrap;margin-top:35px;color:var(--muted);font-size:14px}.support-lang{border:1px solid #bdcec9;border-radius:10px;padding:9px;background:white;color:var(--ink);font:inherit}html[dir="rtl"] .support-wrap{text-align:right}html[dir="rtl"] .support-field{text-align:right}html[dir="rtl"] .support-legal{direction:rtl}html[dir="rtl"] .support-field input,html[dir="rtl"] .support-field textarea{direction:rtl;text-align:right}html[dir="rtl"] .support-field input[type=email]{direction:ltr;text-align:left}html[dir="rtl"] .support-panel{direction:rtl}
+/* Keep the support page at the device viewport width in all three languages. */
+.support-wrap{width:100%;min-width:0;margin-inline:auto}
+.support-panel{min-width:0;max-width:100%;overflow-wrap:anywhere}
+.support-field input,.support-field select,.support-field textarea{max-width:100%;min-width:0}
+@media(max-width:650px){
+  .support-wrap{width:100%;max-width:100%;padding-inline:16px;padding-block:32px}
+  .support-wrap h1{font-size:clamp(26px,7vw,34px);line-height:1.3}
+  .support-panel{width:100%;margin:16px 0;padding:20px 16px;border-radius:16px}
+  .support-panel h2{font-size:21px;line-height:1.4}
+  .support-field{margin:15px 0}
+  .support-field input,.support-field select,.support-field textarea{font-size:16px}
+  .support-panel .primary{max-width:100%;justify-content:center;text-align:center;white-space:normal}
+  .support-legal{gap:12px;font-size:13px}
+  .top .nav{height:auto;min-height:70px;flex-wrap:wrap;gap:8px;padding-block:12px}
+  .top .nav>a.brand{font-size:18px}
+  .top .nav>div{min-width:0;flex-wrap:wrap;gap:8px!important}
+  .support-lang{max-width:115px;font-size:14px}
+}
+</style></head>
 <body><header class="top"><div class="shell nav"><a class="brand" href="index.html"><span class="logo">↗</span>Mizani Plus</a><div style="display:flex;gap:14px;align-items:center"><label for="support-language" id="lang-label" class="sr-only" style="position:absolute;left:-9999px">Language</label><select id="support-language" class="support-lang" aria-label="Language"><option value="ar">العربية</option><option value="de">Deutsch</option><option value="en">English</option></select><a href="index.html" data-t="home">← Startseite</a></div></div></header>
 <main class="shell section support-wrap">
 <h1 data-t="title">Kontakt & Support</h1><p class="support-lead" data-t="lead">Haben Sie Fragen zu Mizani Plus, möchten Sie Feedback geben oder einen Fehler melden? Schreiben Sie uns gerne.</p>
