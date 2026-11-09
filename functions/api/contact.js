@@ -14,5 +14,5 @@ let check;try{const r=await fetch("https://challenges.cloudflare.com/turnstile/v
 if(!check.success||check.hostname&&!["mizaniplus.de","www.mizaniplus.de"].includes(check.hostname))return json({error:"verification_failed"},400);
 const safe=s=>s.replace(/[\r\n]/g," ");
 const payload={from:env.CONTACT_FROM_EMAIL,to:["support@mizaniplus.de"],reply_to:email,subject:"Mizani Plus – "+topic,text:"Name: "+safe(name)+"\nE-Mail: "+safe(email)+"\nThema: "+topic+"\n\nNachricht:\n"+message};
-try{const r=await fetch("https://api.resend.com/emails",{method:"POST",headers:{"authorization":"Bearer "+env.RESEND_API_KEY,"content-type":"application/json"},body:JSON.stringify(payload)});if(!r.ok)return json({error:"delivery_failed"},502);return json({ok:true})}catch{return json({error:"delivery_unavailable"},502)}
+try{const r=await fetch("https://api.resend.com/emails",{method:"POST",headers:{"authorization":"Bearer "+env.RESEND_API_KEY,"content-type":"application/json"},body:JSON.stringify(payload)});if(!r.ok){console.error("Contact delivery rejected",JSON.stringify({providerStatus:r.status}));return json({error:"delivery_failed"},502)}return json({ok:true})}catch{return json({error:"delivery_unavailable"},502)}
 }
